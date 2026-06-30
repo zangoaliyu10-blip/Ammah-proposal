@@ -1,0 +1,120 @@
+# Ammah-proposal
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marriage Proposal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffe6e6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+        }
+        h1 {
+            color: #d63031;
+            font-size: 24px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        h2 {
+            color: #636e72;
+            font-size: 18px;
+            font-weight: 400;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 18px;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+        .options {
+            margin: 25px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        label {
+            font-size: 18px;
+            cursor: pointer;
+            padding: 10px 20px;
+            border: 2px solid #fab1a0;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        input[type="radio"] {
+            display: none;
+        }
+        input[type="radio"]:checked + label {
+            background-color: #ff7675;
+            color: white;
+            border-color: #ff7675;
+        }
+        #response-message {
+            margin-top: 25px;
+            font-size: 20px;
+            font-weight: bold;
+            min-height: 30px;
+        }
+        .success {
+            color: #27ae60;
+        }
+        .error {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Letter of Marriage Proposal</h1>
+        <h2>Application for Marriage</h2>
+        
+        <hr style="border: 0; border-top: 1px solid #ffe6e6; margin: 20px 0;">
+
+        <p>Dear Ammah, will you kindly accept my offer of marriage? 😊</p>
+
+        <div class="options">
+            <input type="radio" id="yes" name="proposal" value="yes" onclick="handleResponse('yes')">
+            <label for="yes">Yes</label>
+
+            <input type="radio" id="no" name="proposal" value="no" onclick="handleResponse('no')">
+            <label for="no">No</label>
+        </div>
+
+        <div id="response-message"></div>
+    </div>
+
+    <script>
+        function handleResponse(answer) {
+            const messageDiv = document.getElementById('response-message');
+            
+            if (answer === 'yes') {
+                messageDiv.innerHTML = "<span class='success'>Thank you for choosing me! ❤️</span>";
+            } else if (answer === 'no') {
+                messageDiv.innerHTML = "<span class='error'>You should know 'No' is not the answer 😒</span>";
+                // Reset selection after a brief moment to encourage the right choice
+                setTimeout(() => {
+                    document.getElementById('no').checked = false;
+                }, 1000);
+            }
+        }
+    </script>
+
+</body>
+</html>
